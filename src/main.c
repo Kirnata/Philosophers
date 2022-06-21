@@ -5,17 +5,15 @@ int	main(int argc, char *argv[])
 {
 	t_data data;
 	int i;
-
 	data_init(&data, argc, argv);
-	i = data.number_of_philosophers;
-	// while(i > 0)
-	// {
-	// 	ptread_creat(тыры пыры, функция имитации жизни философа)
-	// }перенести в pthreads_create наверно массив структур философов, я хз
-		
+
+	i = create_philo(&data);//цикл создания и инициирования потоков
+	if (i == 1)
+		return (0);
+	mutex_func(&data);
 	while (1)
 		while (по кол-ву философов)
-			if проверяет не умерли ли философы
+			if проверяет не умерли ли философы - (текущее время - time_last_eating <= time_to_die)
 				join all threads;
 				destroy mutex
 				чистим все

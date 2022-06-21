@@ -1,6 +1,6 @@
 // #include "../inc/philo.h"
 
-// void *philo(void *data)
+// void *all_your_life(void *data)
 // {
 // 	while (1)
 // 	{
@@ -12,6 +12,7 @@
 // 		lock(right);
 // 		printf("right vilka");
 // 		printf("philo eating");
+//		gettimeofday(last_eating)
 // 		usleep(time_to_eat);
 // 		unlock(right;
 // 		unlock(left);
