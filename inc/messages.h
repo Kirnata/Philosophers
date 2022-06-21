@@ -7,6 +7,7 @@ error_messages
 # define ERROR_ARGS_NUM "ERROR: Wrong number of arguments\n"
 # define ERROR_VALID_ARGS "ERROR: Invalid argument: only positive integers\n"
 # define ERROR_CREATE_THREAD "ERROR: Can not create thread\n"
+# define ERROR_MALLOC "ERROR: malloc error\n"
 
 /*
 help_messages

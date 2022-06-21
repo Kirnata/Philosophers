@@ -1,7 +1,19 @@
-// #include "../inc/philo.h"
+#include "../inc/philo.h"
+#include "../inc/messages.h"
 
-// void *all_your_life(void *data)
+void *all_your_life(void *args)
+{
+	t_data *data;
+	data = (t_data *)args;
+	printf("I was born\n");
+	return (0);
+}
+
+// void *all_your_life(void *args)
 // {
+// 	t_data *data;
+// 	data = (t_data *)args;
+// 	printf("pumpumpum\n");
 // 	while (1)
 // 	{
 //		if (номер философа % 2 == 0)
