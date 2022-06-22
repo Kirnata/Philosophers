@@ -12,16 +12,10 @@ int	create_philo(t_data *data)
 	status = 0;
 	data->philo_data = malloc(sizeof(t_philo_data) * (data->number_of_philosophers + 1));
 	if (!data->philo_data)
-		return (1);//прописать нормально
+		return (FALSE);
 	while (j < data->number_of_philosophers)
 	{
 		fill_philo_data(data, i, j);
-		// status = pthread_create(data->philo_data[i]->philos_thread, NULL, philo_routine, NULL);
-		// if (status != 0)
-		// {
-		// 	printf(ERROR_CREATE_THREAD);
-		// 	return (1);
-		// }уже запускает функцию жизни, поэтому после создания мьютексов
 		i++;
 		j++;
 	}

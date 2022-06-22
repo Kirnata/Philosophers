@@ -6,33 +6,23 @@ int	main(int argc, char *argv[])
 	t_data data;
 	int i;
 
+	i = 0;
 	if (data_init(&data, argc, argv) == FALSE)
 		return (FALSE);
 	if (mutex_create(&data) == FALSE)
 		return (FALSE);
-	printf("hui\n");
-	//exit(0);
-	i = create_philo(&data);//цикл инициирования массива структур философов
-	if (i == 1)
-		return (1);
-	printf("hui2\n");
-	//exit(0);
+	if (create_philo(&data) == FALSE)//цикл инициирования массива структур философов
+		return (FALSE);
 	printf("count of philos - %d\n", data.number_of_philosophers);
-	i = 0;
-	printf("hui3\n");
-	// exit(0);
 	while (i < data.number_of_philosophers)
 	{
 		printf(" %d - philos_num\n", data.philo_data[i].philos_num);
 		i++;
 	}
-	printf("hui4\n");
-	// exit(0);
 	printf("hui5\n");
-	i = create_philo_threads(&data);//запускаем потоки
+	if (create_philo_threads(&data) == FALSE)
+		return (FALSE);//почистить
 	exit(0);
-	if (i == 1)//почистить
-		return (1);
 	// while (1)
 	// 	while (по кол-ву философов)
 	// 		if проверяет не умерли ли философы - (текущее время - time_last_eating <= time_to_die)

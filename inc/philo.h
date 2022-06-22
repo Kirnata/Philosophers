@@ -7,6 +7,7 @@
 # include <stdlib.h>
 # include <sys/time.h> //gettimeofday 
 # include <pthread.h>
+
 // typedef struct s_mutex
 // {
 // 	t_mutex p_mutex;
@@ -24,8 +25,6 @@ typedef struct s_philo_data {
 	//tv_sec*1000 +tv_sec/1000;
 	int last_eating;
 	int	must_die;
-	// int right_fork;
-	// int left_fork;
 	pthread_mutex_t *right_fork;
 	pthread_mutex_t *left_fork;
 } t_philo_data;
@@ -38,6 +37,7 @@ typedef struct s_data {
 	int number_of_times_each_philosopher_must_eat;
 	t_philo_data *philo_data;
 	pthread_mutex_t *mtxs;
+	int	current_thread_num;
 } t_data;
 
 int	data_init(t_data *data, int argc, char *argv[]);
