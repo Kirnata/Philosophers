@@ -5,10 +5,11 @@ int	main(int argc, char *argv[])
 {
 	t_data data;
 	int i;
-	data_init(&data, argc, argv);
-	i = mutex_create(&data);
-	if (i == 1)
-		return (1);
+
+	if (data_init(&data, argc, argv) == FALSE)
+		return (FALSE);
+	if (mutex_create(&data) == FALSE)
+		return (FALSE);
 	printf("hui\n");
 	//exit(0);
 	i = create_philo(&data);//цикл инициирования массива структур философов

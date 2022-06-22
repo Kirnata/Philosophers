@@ -13,6 +13,10 @@
 // 	//наверно что то еще нужно будет
 // } t_mutex;
 
+# define TRUE 0
+# define FALSE 1
+# define INT_MAX 2147483647
+
 typedef struct s_philo_data {
 	pthread_t philos_thread;
 	int philos_num;
@@ -37,6 +41,7 @@ typedef struct s_data {
 } t_data;
 
 int	data_init(t_data *data, int argc, char *argv[]);
+//int	print_init_errors(t_data *data);
 void fill_philo_data(t_data *data, int i, int j);
 int	create_philo(t_data *data);
 int	create_philo_threads(t_data *data);
@@ -47,5 +52,5 @@ void *ft_already_dead(void *args);
 int	ft_philo_atoi(const char *str);
 int	ft_isdigit(int a);
 int	mutex_create(t_data *data);
-
+int	ft_strcmp(const char *s1, const char *s2);
 #endif

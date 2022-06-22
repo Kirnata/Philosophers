@@ -10,12 +10,16 @@ int	mutex_create(t_data *data)
 	if (!data->mtxs)
 	{
 		printf(ERROR_MALLOC);
-		return (1);
+		return (FALSE);
 	}
 	while (i < data->number_of_philosophers)
 	{
-		pthread_mutex_init(&data->mtxs[i], 0);
+		if (pthread_mutex_init(&data->mtxs[i], NULL) != 0)
+		{
+			printf(ERROR_MX_INIT);
+			return (FALSE);
+		}
 		i++;
 	}
-	return (0);
+	return (TRUE);
 }

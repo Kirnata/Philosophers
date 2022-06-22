@@ -10,13 +10,12 @@ int	ft_philo_atoi(const char *str)
 	number = 0;
 	if (str[i] != '\0' && str[i] == '+')
 		i++;
-	while (str[i] != '\0')
+	while (ft_isdigit(str[i]))
 	{
-		if (!(ft_isdigit(str[i])))
-			printf(ERROR_VALID_ARGS);
 		number = (number * 10) + (str[i] - '0');
 		i++;
 	}
-	//проверка на переполнение
+	if (number > INT_MAX || (!ft_isdigit(str[i]) && str[i] != '\0'))
+		return (0);
 	return ((int)(number));
 }
