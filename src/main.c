@@ -16,10 +16,9 @@ int	main(int argc, char *argv[])
 	printf("count of philos - %d\n", data.number_of_philosophers);
 	while (i < data.number_of_philosophers)
 	{
-		printf(" %d - philos_num\n", data.philo_data[i].philos_num);
+		printf(" %d - philos_id, %d - i\n", data.philo_data[i].philos_id, i);
 		i++;
 	}
-	printf("hui5\n");
 	if (create_philo_threads(&data) == FALSE)
 		return (FALSE);//почистить
 	exit(0);
