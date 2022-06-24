@@ -24,7 +24,10 @@ help_messages
 // /*
 // life_circle_messages
 // */
-// # define EAT_MSG "\n"
-// # define SLEEP_MSG "\n"
-// # define THINK_MSG "\n"
+# define EAT_MSG "is eating 🥣\n"
+# define SLEEP_MSG "is sleeping\n"
+# define THINK_MSG "is thinking\n"
+# define TAKE_L_F "has taken a right fork\n"
+# define TAKE_R_F "has taken a left fork\n"
+# define DEAD "IS DEAD 💀\n"
 #endif

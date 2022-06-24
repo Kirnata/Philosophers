@@ -1,17 +1,11 @@
 #include "../inc/philo.h"
 #include "../inc/messages.h"
 
-void *ft_already_dead(void *args)
+int ft_already_dead(t_philo_data *philo_data)
 {
-	t_data *data;
-	data = (t_data *)args;
-	int i;
-
-	i = 1;
-	while (i <= data->number_of_philosophers)
-	{
-		if (data->philo_data[i].must_die == 1)
-			return (1);
-	}
-	return (0);
+	int	delta;
+	delta = time_delta(philo_data->last_eating);
+	if (delta > philo_data->data->time_to_die)
+		return (FALSE);
+	return (TRUE);
 }

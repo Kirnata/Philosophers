@@ -30,7 +30,6 @@ void	fill_philo_data(t_data *data, int i, int j)
 	data->philo_data[i].philos_thread = 0;
 	data->philo_data[i].philos_id = i;
 	data->philo_data[i].last_eating = 0;
-	data->philo_data[i].must_die = 0;
 	data->philo_data[i].right_fork = &data->mtxs[j];
 	data->philo_data[i].left_fork = &data->mtxs[i];
 	data->philo_data[i].data = data;

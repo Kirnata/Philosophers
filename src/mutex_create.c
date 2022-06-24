@@ -7,6 +7,7 @@ int	mutex_create(t_data *data)
 
 	i = 0;
 	data->mtxs = (pthread_mutex_t*)malloc(sizeof(pthread_mutex_t) * data->number_of_philosophers);
+	data->mutex_for_print = (pthread_mutex_t*)malloc(sizeof(pthread_mutex_t));
 	if (!data->mtxs)
 	{
 		printf(ERROR_MALLOC);
@@ -21,5 +22,10 @@ int	mutex_create(t_data *data)
 		}
 		i++;
 	}
+	if (pthread_mutex_init(data->mutex_for_print, NULL) != 0)
+		{
+			printf(ERROR_MX_INIT);
+			return (FALSE);
+		}
 	return (TRUE);
 }

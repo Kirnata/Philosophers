@@ -25,6 +25,7 @@ int	data_init(t_data *data, int argc, char *argv[])
 			printf(FOR_HELP);
 			return (FALSE);
 		}
+		data->must_die = 0;
 	}
 	else
 	{
