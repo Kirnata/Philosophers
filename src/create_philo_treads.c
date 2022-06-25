@@ -7,7 +7,6 @@ int	create_philo_threads(t_data *data)
 
 	i = 0;
 	printf("hui in create_philo_threads\n");
-	//exit(0);
 	while (i < data->number_of_philosophers)
 	{
 		if (pthread_create(&data->philo_data[i].philos_thread, NULL, &all_your_life, &data->philo_data[i]) != 0)
