@@ -14,13 +14,19 @@ int	main(int argc, char *argv[])
 	if (create_philo(&data) == FALSE)//цикл инициирования массива структур философов
 		return (FALSE);
 	printf("count of philos - %d\n", data.number_of_philosophers);
-	while (i < data.number_of_philosophers)
-	{
-		printf(" %d - philos_id, %d - i\n", data.philo_data[i].philos_id, i);
-		i++;
-	}
+	printf("%lld - start_last eating\n", data.philo_data->last_eating);
+	//exit(0);
+	// while (i < data.number_of_philosophers)
+	// {
+	// 	printf(" %d - philos_id, %d - i\n", data.philo_data[i].philos_id, i);
+	// 	i++;
+	// }
+	// exit(0);
 	if (create_philo_threads(&data) == FALSE)
 		return (FALSE);//почистить
+	exit(0);
+	if (join_threads(&data) == FALSE)
+		return (FALSE);
 	exit(0);
 	// while (1)
 	// 	while (по кол-ву философов)

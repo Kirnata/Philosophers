@@ -26,17 +26,12 @@ int	data_init(t_data *data, int argc, char *argv[])
 			return (FALSE);
 		}
 		data->must_die = 0;
+		data->start_time = get_time();
 	}
 	else
 	{
 		printf(ERROR_ARGS_NUM);
 		return (FALSE);
 	}
-	// printf("%d->number_of_philosophers\n", data->number_of_philosophers);
-	// printf("%d->time_to_die\n", data->time_to_die);
-	// printf("%d->time_to_eat\n", data->time_to_eat);
-	// printf("%d->time_to_sleep\n", data->time_to_sleep);
-	// printf("%d->number_of_times_each_philosopher_must_eat\n", data->number_of_times_each_philosopher_must_eat);
-	// exit(0);
 	return (0);
 }

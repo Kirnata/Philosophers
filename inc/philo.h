@@ -30,7 +30,8 @@ struct s_philo_data {
 	pthread_t philos_thread;
 	int philos_id;//int gettimeofday(struct timeval, 0)
 	//tv_sec*1000 + tv_sec/1000 получать типо текущее время
-	int last_eating;
+	int full_meal;
+	long long last_eating;
 	pthread_mutex_t *right_fork;
 	pthread_mutex_t *left_fork;
 	t_data	*data;
@@ -43,6 +44,7 @@ struct s_data {
 	int time_to_sleep;
 	int number_of_times_each_philosopher_must_eat;
 	int	must_die;
+	int	start_time;
 	t_philo_data *philo_data;
 	pthread_mutex_t *mtxs;
 	pthread_mutex_t *mutex_for_print;
@@ -68,5 +70,8 @@ int	ft_strcmp(const char *s1, const char *s2);
 int	ft_print(pthread_mutex_t *mutex_for_print, int i, char *str);
 //time
 long long	get_time();
-int	time_delta(int last_time);
+long long	time_delta(long long last_time);
+void ft_usleep(size_t ms_to_sleep, long long last_time);
+//cehck
+int checker(t_data *data);
 #endif
