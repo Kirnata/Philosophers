@@ -1,41 +1,58 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/27 16:40:34 by ptopping          #+#    #+#             */
+/*   Updated: 2022/06/27 18:08:24 by ptopping         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/philo.h"
 #include "../inc/messages.h"
 //разобраться с destroy(после того как все потоки заджойнили)
 int	main(int argc, char *argv[])
 {
-	t_data data;
-	int i;
+	t_data	data;
+	int		i;
 
 	i = 0;
 	if (data_init(&data, argc, argv) == FALSE)
 		return (FALSE);
 	if (mutex_create(&data) == FALSE)
 		return (FALSE);
-	if (create_philo(&data) == FALSE)//цикл инициирования массива структур философов
+	if (create_philo(&data) == FALSE)
 		return (FALSE);
-	printf("count of philos - %d\n", data.number_of_philosophers);
-	printf("%lld - start_last eating\n", data.philo_data->last_eating);
-	//exit(0);
-	// while (i < data.number_of_philosophers)
-	// {
-	// 	printf(" %d - philos_id, %d - i\n", data.philo_data[i].philos_id, i);
-	// 	i++;
-	// }
-	// exit(0);
 	if (create_philo_threads(&data) == FALSE)
-		return (FALSE);//почистить
-	exit(0);
+		return (FALSE);
 	if (join_threads(&data) == FALSE)
 		return (FALSE);
-	exit(0);
-	// while (1)
-	// 	while (по кол-ву философов)
-	// 		if проверяет не умерли ли философы - (текущее время - time_last_eating <= time_to_die)
-	// 			join all threads;
-	// 			destroy mutex
-	// 			чистим все
-	// 			return (0); в главном потоке*/
-	//printf("%dhui%s\n", argc, *argv);
-	//printf("%d\n%d\n%d\n%d\n%d\n", data.number_of_philosophers, data.time_to_die, data.time_to_eat, data.time_to_sleep, data.number_of_times_each_philosopher_must_eat);
+	if (ft_mutex_destroy(&data) == FALSE)
+		return (FALSE);
+	philo_free(&data);
 	return (0);
-} 
+}
+
+int	(ft_mutex_destroy(t_data *data))
+{
+	int	i;
+
+	i = 0;
+	while (i < data->number_of_philosophers)
+	{
+		if (pthread_mutex_destroy(&data->mtxs[i]))
+			return (FALSE);
+		i++;
+	}
+	if (pthread_mutex_destroy(data->mutex_for_print))
+		return (FALSE);
+	return (TRUE);
+}
+
+void	philo_free(t_data *data)
+{
+	free(data->philo_data);
+	free(data->mutex_for_print);
+}

@@ -1,18 +1,27 @@
 NAME = philo
 
-SRCS = src/all_your_life.c src/create_philo_treads.c src/create_philo.c src/data_init.c\
-src/ft_already_dead.c src/get_time.c src/main.c src/mutex_create.c utls/ft_isdigit.c src/checker.c src/ft_usleep.c\
-utls/ft_philo_atoi.c utls/ft_print.c utls/ft_strcmp.c
+SRCS		= src/all_your_life.c \
+			src/create_philo_treads.c \
+			src/create_philo.c \
+			src/data_init.c \
+			src/ft_already_dead.c \
+			src/get_time.c src/main.c \
+			src/mutex_create.c \
+			src/ft_join_threads.c \
+			src/checker.c \
+			src/ft_usleep.c \
+			src/philo_utils.c \
 
-HDRS = inc/messages.h inc/philo.h
+HDRS		= inc/messages.h \
+			inc/philo.h \
 
-OBJS = $(SRCS:.c=.o)
+OBJS		= $(SRCS:.c=.o)
 
-OBJ_D = = $(SRCS:.c=.d)
+OBJ_D		= $(SRCS:.c=.d)
 
-CC = cc
+CC			= cc
 
-FLAGS = -Wall -Werror -Wextra -ptread -MMD
+FLAGS		= -Wall -Werror -Wextra -lptread
 
 RM			= rm -f
 
@@ -30,16 +39,14 @@ $(NAME): $(OBJS) $(HDRS)
 %.o: %.c $(HDRS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-all: $(NAME)
+all:		$(NAME)
 
 clean:
-	rm -f $(OBJS)$(OBJ_D)
+			rm -f $(OBJS)$(OBJ_D)
 
 fclean: clean
-	rm -f $(NAME)
+			rm -f $(NAME)
 
-re: fclean all
+re:			fclean all
 
-.PHONY: all re clean fclean
-
--include $(OBJ_D)
+.PHONY:		all re clean fclean

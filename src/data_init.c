@@ -1,7 +1,7 @@
 #include "../inc/philo.h"
 #include "../inc/messages.h"
 
-int	data_init(t_data *data, int argc, char *argv[])
+int	data_init(t_data *data, int	argc, char *argv[])
 {
 	if (argc == 2 && ft_strcmp(argv[1], "HELP") == TRUE)
 	{
@@ -17,16 +17,11 @@ int	data_init(t_data *data, int argc, char *argv[])
 		if (argc == 5)
 			data->number_of_times_each_philosopher_must_eat = -1;
 		else if (argc == 6)
-			data->number_of_times_each_philosopher_must_eat = ft_philo_atoi(argv[5]);
-		if (!data->number_of_philosophers || !data->time_to_die || !data->time_to_eat ||
-			!data->time_to_sleep || !data->number_of_times_each_philosopher_must_eat)
-		{
-			printf(ERROR_VALID_ARGS);
-			printf(FOR_HELP);
+			data->number_of_times_each_philosopher_must_eat = \
+			ft_philo_atoi(argv[5]);
+		if (ft_errors_in_init(data))
 			return (FALSE);
-		}
 		data->must_die = 0;
-		data->start_time = get_time();
 	}
 	else
 	{
@@ -34,4 +29,17 @@ int	data_init(t_data *data, int argc, char *argv[])
 		return (FALSE);
 	}
 	return (0);
+}
+
+int	ft_errors_in_init(t_data *data)
+{
+	if (!data->number_of_philosophers || !data->time_to_die || \
+	!data->time_to_eat || !data->time_to_sleep || \
+	!data->number_of_times_each_philosopher_must_eat)
+	{
+		printf(ERROR_VALID_ARGS);
+		printf(FOR_HELP);
+		return (FALSE);
+	}
+	return (TRUE);
 }

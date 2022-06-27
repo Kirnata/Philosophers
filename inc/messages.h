@@ -7,7 +7,6 @@ error_messages
 # define ERROR_ARGS_NUM "ERROR: Wrong number of arguments\n"
 # define ERROR_VALID_ARGS "ERROR: Invalid arguments: only positive integers\n"
 # define ERROR_CREATE_THREAD "ERROR: Can not create thread\n"
-# define ERROR_MALLOC "ERROR: malloc error\n"
 # define ERROR_MX_INIT "ERROR: mutex init has failed\n"
 # define FOR_HELP "Enter help for more information\n"
 
