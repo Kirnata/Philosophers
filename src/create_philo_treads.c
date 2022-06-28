@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:26:07 by ptopping          #+#    #+#             */
-/*   Updated: 2022/06/27 17:49:08 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/06/28 20:44:14 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,7 @@ int	create_philo_threads(t_data *data)
 		}
 		i++;
 	}
-	// usleep(10000);
-	if (checker(data) == FALSE)
+	if (checker(data))
 		data->must_die = 1;
 	return (TRUE);
 }

@@ -4,7 +4,6 @@ SRCS		= src/all_your_life.c \
 			src/create_philo_treads.c \
 			src/create_philo.c \
 			src/data_init.c \
-			src/ft_already_dead.c \
 			src/get_time.c src/main.c \
 			src/mutex_create.c \
 			src/ft_join_threads.c \
@@ -21,7 +20,7 @@ OBJ_D		= $(SRCS:.c=.d)
 
 CC			= cc
 
-FLAGS		= -Wall -Werror -Wextra -lptread
+FLAGS		= -Wall -Werror -Wextra
 
 RM			= rm -f
 

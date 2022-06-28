@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 18:25:04 by ptopping          #+#    #+#             */
-/*   Updated: 2022/06/27 18:26:43 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/06/28 20:41:48 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,16 @@ int	ft_philo_atoi(const char *str)
 	return ((int)(number));
 }
 
-int	ft_print(pthread_mutex_t *mutex_for_print, int i, char *str)
+int	ft_print(t_data *data, int i, char *str)
 {
-	pthread_mutex_lock(mutex_for_print);
-	printf("%d %s", i, str);
-	pthread_mutex_unlock(mutex_for_print);
-	return (0);
+	if (data->must_die == 0)
+	{
+		pthread_mutex_lock(data->mutex_for_print);
+		printf("%d %s", i, str);
+		pthread_mutex_unlock(data->mutex_for_print);
+		return (TRUE);
+	}
+	return (FALSE);
 }
 
 int	ft_strcmp(const char *s1, const char *s2)

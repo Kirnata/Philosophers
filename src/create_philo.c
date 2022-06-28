@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:24:11 by ptopping          #+#    #+#             */
-/*   Updated: 2022/06/27 17:25:00 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/06/28 15:45:47 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	create_philo(t_data *data)
 	i = 0;
 	j = 1;
 	data->philo_data = \
-	malloc(sizeof(t_philo_data) * (data->number_of_philosophers + 1));
+	malloc(sizeof(t_philo_data) * (data->number_of_philosophers));
 	if (!data->philo_data)
 		return (FALSE);
 	while (j < data->number_of_philosophers)
