@@ -23,13 +23,7 @@ $> ./philo number_of_philosophers time_to_die time_to_eat time_to_sleep
  ```
 $> ./philo number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
  ```
-![alt text](pictures/mandelbrot_1.png "Mandelbrote")
-![alt text](pictures/Mandelbrote_2.png)
-![alt text](pictures/Julia_1.png)
-![alt text](pictures/Julia_2.png)
-![alt text](pictures/Burning_ship_1.png)
-![alt text](pictures/Burning_ship_2.png)
-![alt text](pictures/Burning_ship_3.png)
-
- ## Subject
- > [subject](subject.pdf)
+## Subject
+ [subject](en.subject.pdf)
+ 
+![image] Vby7.gif
