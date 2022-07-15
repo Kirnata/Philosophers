@@ -8,7 +8,6 @@ git clone https://github.com/Kirnata/philo.git
 cd philo
 make
 ```
-
 ## Make commands
 - `make` to compile mandatory part. <br>
 - `make clean` to clean all object files of libft. <br>
@@ -26,4 +25,6 @@ $> ./philo number_of_philosophers time_to_die time_to_eat time_to_sleep [number_
 ## Subject
  [subject](en.subject.pdf)
  
-![image] Vby7.gif
+<div align="center" id="top"> 
+  <img src="./Vby7.gif" alt="Gh_philosophers" />
+</div>
